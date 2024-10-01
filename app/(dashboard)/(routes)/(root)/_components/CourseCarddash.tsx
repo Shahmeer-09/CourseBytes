@@ -23,7 +23,7 @@ const CourseCard = ({
   chapterslength,
   progress,
 }: courscardprops) => {
-  console.log(progress)
+
   return (
     <Link href={`/courses/${id}`} >
       <div className=" flex flex-col group gap-2 hover:shadow-md transition p-2 rounded-md  ">

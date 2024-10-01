@@ -6,15 +6,18 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Ghost, LogOut } from "lucide-react";
+import { IsTeacher } from "@/lib/AdminFilter";
 interface userbtnprops {
   name: string;
   email: string;
   image: string;
+  isadmin: boolean;
 }
-const Userbtn = ({ name, email, image }: userbtnprops) => {
+const Userbtn = ({ name, email, image, isadmin }: userbtnprops) => {
   const pathname = usePathname();
   const isTeacher = pathname.includes("/teacher");
   const isCourseCard = pathname.includes("/courses");
+
   return (
     <div className=" flex gap-x-2 mr-3  ">
       {isTeacher || isCourseCard ? (
@@ -25,9 +28,13 @@ const Userbtn = ({ name, email, image }: userbtnprops) => {
           </Link>
         </Button>
       ) : (
-        <Button variant={"ghost"} size={"sm"}>
-          <Link href={"/teacher/courses"}>Teacher mode</Link>
-        </Button>
+        <>
+          {isadmin && (
+            <Button variant={"ghost"} size={"sm"} asChild>
+              <Link href={"/teacher/courses"}>Teacher mode</Link>
+            </Button>
+          )}
+        </>
       )}
       <UserDropdown name={name} email={email} image={image} />
     </div>

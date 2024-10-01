@@ -6,12 +6,13 @@ import UserDropdown from "./UserDropdown";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Userbtn from "./Userbtn";
 import SearchInput from "./SearchInput";
+import { IsTeacher } from "@/lib/AdminFilter";
 
 const Navbar = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+  const isadmin = IsTeacher(user.id.toString());
 
-  
   return (
     <div className=" flex bg-white items-center justify-between  p-4  h-full">
       <MobileSidebar />
@@ -25,6 +26,7 @@ const Navbar = async () => {
               name={user?.given_name!}
               image={user?.picture || ""}
               email={user?.email!}
+              isadmin={isadmin}
             />
           ) : (
             <div className=" flex gapx-2 mr-4 ">
