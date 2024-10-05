@@ -17,10 +17,10 @@ import Link from "next/link";
 import { ActionCreateCourse } from "@/app/services/TeacherAction";
 import { TitleSchema } from "@/app/Zodschemas";
 import { toast } from "sonner";
-import { redirect, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 
 
-const page = () => {
+const CreateForm = () => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof TitleSchema>>({
@@ -47,7 +47,7 @@ const page = () => {
         <h1 className=" text-2xl ">Give your course a name</h1>
         <p className=" text-sm text-muted-foreground ">
           {" "}
-          Decide a neme for your course! And don't Worry you can always change
+          Decide a neme for your course! And don`t Worry you can always change
           it .{" "}
         </p>
         <Form {...form}>
@@ -81,4 +81,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CreateForm;

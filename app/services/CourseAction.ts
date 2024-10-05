@@ -49,7 +49,6 @@ export const getCourse = async ({
   categoryId,
 }: getcoursetype) => {
   try {
-    console.log(userid, title, categoryId);
     const courses = await prisma.course.findMany({
       where: {
         title: {
@@ -140,7 +139,7 @@ export const getDashbordCourses = async (): Promise<dashbordcoursetype> => {
     const courses = coursespurchased.map(
       (puchase) => puchase?.course
     ) as coursedashbordData[];
-    for (let course of courses) {
+    for (const course of courses) {
       const progress = await getPorgress(user.id, course?.id!);
       course["progress"] = progress;
     }

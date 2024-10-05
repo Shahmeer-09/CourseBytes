@@ -23,7 +23,8 @@ const SearchInput = () => {
     });
     router.push(route);
   };
-  const debouncedfun = useCallback(debounce(1000, setStrinf), [setvalue]);
+  const debouncedfun = useCallback(debounce(1000,(value) => setStrinf(value)), [setvalue]);
+
   const searchstart = !!pathname.startsWith("/search");
   return (
     <>

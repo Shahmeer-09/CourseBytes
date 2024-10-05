@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Ghost, LogOut } from "lucide-react";
-import { IsTeacher } from "@/lib/AdminFilter";
 interface userbtnprops {
   name: string;
   email: string;
