@@ -9,10 +9,10 @@ interface progressComProps {
   size?: "default" | "sm" | "lg";
 }
 
-const colors = {
-  default: "bg-sky-700",
-  success: "bg-emerald-700",
-};
+// const colors = {
+//   default: "bg-sky-700",
+//   success: "bg-emerald-700",
+// };
 const sizes = {
   default: "text-sm",
   sm: "text-xs",

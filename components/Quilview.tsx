@@ -10,7 +10,7 @@ interface editorprops {
   fontweight?: string;
 }
 
-export const View = ({ value, fontsize, fontweight }: editorprops) => {
+export const View = ({ value }: editorprops) => {
   const ReactQuill = useMemo(
     () => dynamic(() => import("react-quill"), { ssr: false }),
     []
@@ -22,6 +22,7 @@ export const View = ({ value, fontsize, fontweight }: editorprops) => {
         theme="bubble"
         value={value}
         readOnly={true}
+       
       />
     </div>
   );
