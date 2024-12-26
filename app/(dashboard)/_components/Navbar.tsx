@@ -11,7 +11,7 @@ import { IsTeacher } from "@/lib/AdminFilter";
 const Navbar = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  const isadmin = IsTeacher(user.id.toString());
+  const isadmin = IsTeacher(user?.id?.toString());
 
   return (
     <div className=" flex bg-white items-center justify-between  p-4  h-full">

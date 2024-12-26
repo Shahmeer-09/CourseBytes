@@ -25,7 +25,6 @@ interface chapterprogressbtnprops {
 
 export const ChapterProgressBtn = ({
   chapid,
-
   course,
   iscompleted,
   nextchapterid,
